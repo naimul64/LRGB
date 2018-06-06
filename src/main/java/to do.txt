@@ -1,0 +1,8 @@
+In that excel file, red colored sheets are input sheets, You can consider these sheets csv inputs.
+light green color sheets are intermediate calculations and the last sheet name "Index&Vol" is the final calculation.
+
+You have to setup a small program written in java that takes inputs from red colored sheets
+and gives the final calculation as output in csv or txt format.
+
+Relationship between sheets are given as formula in the last column of the sheets.
+Your task is to understand the relationship and convert it into a java code.
