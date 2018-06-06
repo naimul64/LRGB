@@ -1,18 +1,12 @@
-import DataStructure.TicketSectorDateValue;
-import com.microsoft.schemas.office.visio.x2012.main.RowType;
 import javafx.util.Pair;
-import org.apache.poi.openxml4j.opc.OPCPackage;
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.*;
 
-import java.awt.Color;
+import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
-
-import static java.lang.Double.NaN;
 
 public class ExcelReader3 {
     void readExcel() {
@@ -35,6 +29,9 @@ public class ExcelReader3 {
             populateTDivisor(workbookInput);
             populateTReturn(workbookInput);
 
+            FinalCalculation finalCalculation = new FinalCalculation();
+            finalCalculation.executeFinalCalculation(workbookInput);
+
             fi.close();
             FileOutputStream fo = new FileOutputStream(inputExcel);
             workbookInput.write(fo);
@@ -44,6 +41,7 @@ public class ExcelReader3 {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
         System.out.println("Done");
     }
